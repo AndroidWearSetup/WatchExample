@@ -31,7 +31,8 @@ public class MyPostNotificationReceiver extends BroadcastReceiver {
     private Notification createNotification(Context context, String text) {
         return new Notification.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(text)
+                .setContentTitle("Question:")
+                .setContentText("Question Question Question Question Question Question Question Question Question Question Question Question Question Question ")
                 .extend(createWearableExtension(context))
                 .build();
     }
@@ -43,10 +44,11 @@ public class MyPostNotificationReceiver extends BroadcastReceiver {
     }
 
     private Notification createFirstPage(Context context) {
-        return new Notification.Builder(context)
+        return new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Page 1")
-                .setContentText("Short message")
+                .setContentTitle("Answer A:")
+                .setContentText("Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A Answer A ")
+                .setStyle(new NotificationCompat.BigTextStyle())
                 .setContentIntent(createPendingIntent(context))
                 .build();
     }
@@ -54,8 +56,8 @@ public class MyPostNotificationReceiver extends BroadcastReceiver {
     private Notification createSecondPage(Context context) {
         return new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Page 2")
-                .setContentText("Long message Long message Long message Long message Long message Long message Long message Long message Long messageLong mess")
+                .setContentTitle("Answer B:")
+                .setContentText("Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B Bnswer B ")
                 .setStyle(new NotificationCompat.BigTextStyle())
                 .setContentIntent(createPendingIntent(context))
                 .build();
