@@ -40,7 +40,8 @@ public class MyPostNotificationReceiver extends BroadcastReceiver {
     private Notification.WearableExtender createWearableExtension(Context context) {
         return new Notification.WearableExtender()
                 .addPage(createFirstPage(context))
-                .addPage(createSecondPage(context));
+                .addPage(createSecondPage(context))
+                .setDisplayIntent(createThirdPage(context));
     }
 
     private Notification createFirstPage(Context context) {
@@ -61,6 +62,14 @@ public class MyPostNotificationReceiver extends BroadcastReceiver {
                 .setStyle(new NotificationCompat.BigTextStyle())
                 .setContentIntent(createPendingIntent(context))
                 .build();
+    }
+
+    private PendingIntent createThirdPage(Context context) {
+        Intent intent = new Intent(context, JustWatchActivity.class);
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        return new NotificationCompat.WearableExtender()
+//                .setDisplayIntent(pendingIntent)
+//                .build();
     }
 
     private PendingIntent createPendingIntent(Context context) {
