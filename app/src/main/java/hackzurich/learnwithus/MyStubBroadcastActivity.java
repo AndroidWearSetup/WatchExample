@@ -13,6 +13,8 @@ import android.os.Bundle;
  */
 public class MyStubBroadcastActivity extends Activity {
 
+    private JobScheduler jobScheduler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +24,19 @@ public class MyStubBroadcastActivity extends Activity {
         i.putExtra(MyPostNotificationReceiver.CONTENT_KEY, getString(R.string.title));
         sendBroadcast(i);
 
-        JobScheduler mJobScheduler = (JobScheduler)
-                getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         JobInfo.Builder builder = new JobInfo.Builder(1,new ComponentName(getPackageName(), JobSchedulerService.class.getName()))
                 .setPeriodic(5_000);
-        if( mJobScheduler.schedule( builder.build() ) <= 0 ) {
+        if( jobScheduler.schedule(builder.build()) <= 0 ) {
             throw new RuntimeException("scheduling failed");
         }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        jobScheduler.cancelAll();
     }
 }
