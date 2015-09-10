@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AnswerListAdapter extends BaseAdapter {
 
-    private final List<Answer> answerList = new ArrayList<Answer>();
     private final Context context;
     private final List<AnswerItemAdapter> answerAdapterList = new ArrayList<>();
 
@@ -22,7 +20,6 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public void add(Answer answer) {
-        answerList.add(answer);
         answerAdapterList.add(new AnswerItemAdapter(answer));
         notifyDataSetChanged();
     }
@@ -48,7 +45,7 @@ public class AnswerListAdapter extends BaseAdapter {
         LinearLayout answerListLayout = (LinearLayout) LayoutInflater.from(context).inflate(
                 R.layout.answer_field, parent, false);
 
-        AnswerItemAdapter answerItemAdapter =  getItem(position);
+        AnswerItemAdapter answerItemAdapter = getItem(position);
 
         answerItemAdapter.setAnswerView(answerListLayout);
 
@@ -56,8 +53,8 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public Boolean checkAnswersCorrectness() {
-        for (Answer answer : answerList) {
-            if (answer.isChoosen() != answer.isCorrect()) {
+        for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
+            if (answerItemAdapter.isChoosen() != answerItemAdapter.isCorrect()) {
                 return false;
             }
         }
@@ -65,11 +62,11 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public void colourAnswersField() {
-        for (Answer answer : answerList) {
-            if (answer.isCorrect()) {
+        for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
+            if (answerItemAdapter.isCorrect()) {
                 //TODO: Paint it green
             }
-            if (answer.isChoosen() && !answer.isCorrect()) {
+            if (answerItemAdapter.isChoosen() && !answerItemAdapter.isCorrect()) {
                 //TODO: Paint it red
             }
         }

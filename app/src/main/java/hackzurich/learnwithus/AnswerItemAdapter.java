@@ -7,9 +7,11 @@ import android.widget.TextView;
 public class AnswerItemAdapter {
 
     private Answer answer;
+    private Boolean choosen;
 
     public AnswerItemAdapter(Answer answer) {
         this.answer = answer;
+        choosen = false;
     }
 
     public void setAnswerView(LinearLayout answerLayout) {
@@ -17,16 +19,16 @@ public class AnswerItemAdapter {
         answerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!answer.isChoosen()) {
+                if (!isChoosen()) {
                     answerLayout.setBackgroundColor(0xff324e94);
-                    answer.setChoosen(true);
+                    setChoosen(true);
                 } else {
                     answerLayout.setBackgroundColor(0xff666666);
-                    answer.setChoosen(false);
+                    setChoosen(false);
                 }
             }
         });
-        if (answer.isChoosen()) {
+        if (isChoosen()) {
             answerLayout.setBackgroundColor(0xff324e94);
         } else {
             answerLayout.setBackgroundColor(0xff666666);
@@ -36,5 +38,17 @@ public class AnswerItemAdapter {
 
         final TextView answerTextView = (TextView) answerLayout.findViewById(R.id.answerTextView);
         answerTextView.setText(answer.getText());
+    }
+
+    public final Boolean isChoosen() {
+        return choosen;
+    }
+
+    public final void setChoosen(Boolean choosen) {
+        this.choosen = choosen;
+    }
+
+    public Boolean isCorrect() {
+        return answer.isCorrect();
     }
 }
