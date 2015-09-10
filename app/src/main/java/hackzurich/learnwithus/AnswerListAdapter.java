@@ -15,6 +15,7 @@ public class AnswerListAdapter extends BaseAdapter {
 
     private final List<Answer> answerList = new ArrayList<Answer>();
     private final Context context;
+    private final List<AnswerItemAdapter> answerAdapterList = new ArrayList<>();
 
     AnswerListAdapter(Context context) {
         this.context = context;
@@ -22,22 +23,18 @@ public class AnswerListAdapter extends BaseAdapter {
 
     public void add(Answer answer) {
         answerList.add(answer);
-        notifyDataSetChanged();
-    }
-
-    public void clear() {
-        answerList.clear();
+        answerAdapterList.add(new AnswerItemAdapter(answer));
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return answerList.size();
+        return answerAdapterList.size();
     }
 
     @Override
-    public Answer getItem(int position) {
-        return answerList.get(position);
+    public AnswerItemAdapter getItem(int position) {
+        return answerAdapterList.get(position);
     }
 
     @Override
@@ -48,16 +45,12 @@ public class AnswerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        final Answer answer = getItem(position);
-
         LinearLayout answerListLayout = (LinearLayout) LayoutInflater.from(context).inflate(
                 R.layout.answer_field, parent, false);
 
-        AnswerItemAdapter answerItemAdapter = new AnswerItemAdapter(answer, answerListLayout);
+        AnswerItemAdapter answerItemAdapter =  getItem(position);
 
-        answerItemAdapter.setAnswerView();
-
-
+        answerItemAdapter.setAnswerView(answerListLayout);
 
         return answerListLayout;
     }

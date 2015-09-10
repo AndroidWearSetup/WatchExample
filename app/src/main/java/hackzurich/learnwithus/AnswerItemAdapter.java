@@ -7,14 +7,12 @@ import android.widget.TextView;
 public class AnswerItemAdapter {
 
     private Answer answer;
-    private LinearLayout answerLayout;
 
-    public AnswerItemAdapter(Answer answer, LinearLayout answerLayout) {
+    public AnswerItemAdapter(Answer answer) {
         this.answer = answer;
-        this.answerLayout = answerLayout;
     }
 
-    public void setAnswerView() {
+    public void setAnswerView(LinearLayout answerLayout) {
 
         answerLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +26,11 @@ public class AnswerItemAdapter {
                 }
             }
         });
-
+        if (answer.isChoosen()) {
+            answerLayout.setBackgroundColor(0xff324e94);
+        } else {
+            answerLayout.setBackgroundColor(0xff666666);
+        }
         final TextView markTextView = (TextView) answerLayout.findViewById(R.id.markTextView);
         markTextView.setText(answer.getMark());
 
