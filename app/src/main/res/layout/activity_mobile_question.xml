@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:gravity="center"
+            android:text="Hi! I&apos;m your question :) How are you?"
+            android:id="@+id/questionTextView" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answerQuestionButton"
+            android:text="Thanks, I&apos;m fine."
+            android:background="#ff93b2ff"
+            android:textColor="#ff000000"
+            android:layout_marginBottom="2dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quite good."
+            android:id="@+id/answerQuestionButton1"
+            android:background="#FF93B2FF"
+            android:textColor="#ff000000"
+            android:layout_marginBottom="2dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Shitty"
+            android:id="@+id/answerQuestionButton2"
+            android:background="#FF93B2FF"
+            android:textColor="#ff000000"
+            android:layout_marginBottom="2dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuck off!!!"
+            android:id="@+id/answerQuestionButton3"
+            android:background="#FF93B2FF"
+            android:textColor="#ff000000"
+            android:layout_marginBottom="2dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="I have no idea..."
+            android:id="@+id/doNotKnowButton1"
+            android:background="#ff9aa3ff"
+            android:textColor="#ff000000"
+            android:layout_marginRight="2dp"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:id="@+id/confirmAnswerQuestionButton1"
+            android:background="#ff9aa3ff"
+            android:textColor="#ff000000"
+            android:layout_marginLeft="2dp"/>
+    </LinearLayout>
+</LinearLayout>
