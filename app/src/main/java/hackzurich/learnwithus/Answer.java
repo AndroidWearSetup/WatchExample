@@ -2,9 +2,6 @@ package hackzurich.learnwithus;
 
 import android.content.Intent;
 
-/**
- * Created by karola on 08.09.15.
- */
 public class Answer {
 
     public final static String MARK = "mark";
@@ -31,19 +28,25 @@ public class Answer {
         choosen = Boolean.parseBoolean(intent.getStringExtra(Answer.IS_CHOOSEN));
     }
 
-    public final String getText() { return text; }
+    public final String getText() {
+        return text;
+    }
 
     public final void setText(String text) {
         this.text = text;
     }
 
-    public final String getMark() { return mark; }
+    public final String getMark() {
+        return mark;
+    }
 
     public final void setMark(String mark) {
         this.mark = mark;
     }
 
-    public final Boolean isCorrect() { return correct; }
+    public final Boolean isCorrect() {
+        return correct;
+    }
 
     public final void setCorrect(Boolean correct) {
         this.correct = correct;

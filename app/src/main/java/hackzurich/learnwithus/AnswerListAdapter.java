@@ -11,9 +11,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by karola on 07.09.15.
- */
 public class AnswerListAdapter extends BaseAdapter {
 
     private final List<Answer> answerList = new ArrayList<Answer>();
@@ -59,11 +56,10 @@ public class AnswerListAdapter extends BaseAdapter {
         answerListLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!answer.isChoosen()) {
+                if (!answer.isChoosen()) {
                     answerListLayout.setBackgroundColor(0xff324e94);
                     answer.setChoosen(true);
-                }
-                else {
+                } else {
                     answerListLayout.setBackgroundColor(0xff666666);
                     answer.setChoosen(false);
                 }
@@ -80,10 +76,8 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public Boolean checkAnswersCorrectness() {
-        for(Answer answer : answerList)
-        {
-            if(answer.isChoosen() != answer.isCorrect())
-            {
+        for (Answer answer : answerList) {
+            if (answer.isChoosen() != answer.isCorrect()) {
                 return false;
             }
         }
@@ -91,14 +85,11 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public void colourAnswersField() {
-        for(Answer answer : answerList)
-        {
-            if(answer.isCorrect() == true )
-            {
+        for (Answer answer : answerList) {
+            if (answer.isCorrect()) {
                 //TODO: Paint it green
             }
-            if(answer.isChoosen() && answer.isCorrect() == false)
-            {
+            if (answer.isChoosen() && !answer.isCorrect()) {
                 //TODO: Paint it red
             }
         }

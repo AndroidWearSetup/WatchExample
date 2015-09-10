@@ -35,7 +35,7 @@ public class MobileQuestionActivity extends ListActivity {
         answerListAdapter.add(new Answer("E.", "A little bit uncomfortable", false));
         answerListAdapter.add(new Answer("F.", "I have a hangover", false));
         answerListAdapter.add(new Answer("G.", "Well this is number seven and I'm feeling like in heaven", true));
-       /* answerListAdapter.add(new Answer("H.", "This is not the answer! Do not choose me!", false));
+      /*  answerListAdapter.add(new Answer("H.", "This is not the answer! Do not choose me!", false));
         answerListAdapter.add(new Answer("I.", "This is not the answer! Do not choose me!", false));
         answerListAdapter.add(new Answer("J.", "This is not the answer! Do not choose me!", false));*/
 
@@ -75,16 +75,15 @@ public class MobileQuestionActivity extends ListActivity {
         confirmAnswerQuestionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG,"confirmAnswerButtonClicked");
+                Log.i(TAG, "confirmAnswerButtonClicked");
 
                 Context context = getApplicationContext();
                 CharSequence text;
                 int duration = Toast.LENGTH_SHORT;
 
-                if(answerListAdapter.checkAnswersCorrectness()) {
+                if (answerListAdapter.checkAnswersCorrectness()) {
                     text = "Good job!";
-                }
-                else {
+                } else {
                     text = "Answers are not correct!";
                 }
 
