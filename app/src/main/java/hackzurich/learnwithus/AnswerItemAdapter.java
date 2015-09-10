@@ -4,51 +4,68 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class AnswerItemAdapter {
+public final class AnswerItemAdapter {
 
     private Answer answer;
     private Boolean choosen;
+    private Boolean submitted;
 
     public AnswerItemAdapter(Answer answer) {
         this.answer = answer;
         choosen = false;
+        submitted = false;
     }
 
     public void setAnswerView(LinearLayout answerLayout) {
 
-        answerLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isChoosen()) {
-                    answerLayout.setBackgroundColor(0xff324e94);
-                    setChoosen(true);
-                } else {
-                    answerLayout.setBackgroundColor(0xff666666);
-                    setChoosen(false);
+        if (!submitted) {
+            answerLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    choosen = !choosen;
+                    setProperBackgroungColor(answerLayout);
                 }
-            }
-        });
-        if (isChoosen()) {
-            answerLayout.setBackgroundColor(0xff324e94);
-        } else {
-            answerLayout.setBackgroundColor(0xff666666);
+            });
         }
-        final TextView markTextView = (TextView) answerLayout.findViewById(R.id.markTextView);
+        setProperBackgroungColor(answerLayout);
+
+        TextView markTextView = (TextView) answerLayout.findViewById(R.id.markTextView);
         markTextView.setText(answer.getMark());
 
-        final TextView answerTextView = (TextView) answerLayout.findViewById(R.id.answerTextView);
+        TextView answerTextView = (TextView) answerLayout.findViewById(R.id.answerTextView);
         answerTextView.setText(answer.getText());
     }
 
-    public final Boolean isChoosen() {
-        return choosen;
+    private void setProperBackgroungColor(LinearLayout answerLayout) {
+        if (choosen) {
+            if (submitted) {
+                if (isCorrect()) {
+                    answerLayout.setBackgroundResource(R.color.green);
+                } else {
+                    answerLayout.setBackgroundResource(R.color.red);
+                }
+            } else {
+                answerLayout.setBackgroundResource(R.color.blue);
+            }
+        } else {
+            if (submitted && isCorrect()) {
+                answerLayout.setBackgroundResource(R.color.green);
+            } else {
+                answerLayout.setBackgroundResource(R.color.gray);
+            }
+        }
     }
 
-    public final void setChoosen(Boolean choosen) {
-        this.choosen = choosen;
+    public Boolean isChoosen() {
+        return choosen;
     }
 
     public Boolean isCorrect() {
         return answer.isCorrect();
     }
+
+    public void setSubmitted(Boolean submitted) {
+        this.submitted = submitted;
+    }
+
 }

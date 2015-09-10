@@ -63,12 +63,13 @@ public class AnswerListAdapter extends BaseAdapter {
 
     public void colourAnswersField() {
         for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
-            if (answerItemAdapter.isCorrect()) {
-                //TODO: Paint it green
-            }
-            if (answerItemAdapter.isChoosen() && !answerItemAdapter.isCorrect()) {
-                //TODO: Paint it red
-            }
+            answerItemAdapter.setSubmitted(true);
+//            if (answerItemAdapter.isCorrect()) {
+//                //TODO: Paint it green
+//            }
+//            if (answerItemAdapter.isChoosen() && !answerItemAdapter.isCorrect()) {
+//                //TODO: Paint it red
+//            }
         }
         notifyDataSetChanged();
     }
