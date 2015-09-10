@@ -53,24 +53,11 @@ public class AnswerListAdapter extends BaseAdapter {
         LinearLayout answerListLayout = (LinearLayout) LayoutInflater.from(context).inflate(
                 R.layout.answer_field, parent, false);
 
-        answerListLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!answer.isChoosen()) {
-                    answerListLayout.setBackgroundColor(0xff324e94);
-                    answer.setChoosen(true);
-                } else {
-                    answerListLayout.setBackgroundColor(0xff666666);
-                    answer.setChoosen(false);
-                }
-            }
-        });
+        AnswerItemAdapter answerItemAdapter = new AnswerItemAdapter(answer, answerListLayout);
 
-        final TextView markTextView = (TextView) answerListLayout.findViewById(R.id.markTextView);
-        markTextView.setText(answer.getMark());
+        answerItemAdapter.setAnswerView();
 
-        final TextView answerTextView = (TextView) answerListLayout.findViewById(R.id.answerTextView);
-        answerTextView.setText(answer.getText());
+
 
         return answerListLayout;
     }
@@ -93,5 +80,6 @@ public class AnswerListAdapter extends BaseAdapter {
                 //TODO: Paint it red
             }
         }
+        notifyDataSetChanged();
     }
 }
