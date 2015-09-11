@@ -1,6 +1,5 @@
 package hackzurich.learnwithus;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
@@ -81,7 +80,7 @@ public class MobileQuestionActivity extends ListActivity {
                 CharSequence text;
                 int duration = Toast.LENGTH_SHORT;
 
-                if (answerListAdapter.checkAnswersCorrectness()) {
+                if (answerListAdapter.wasCorrectAnswerMarked()) {
                     text = "Good job!";
                 } else {
                     text = "Answers are not correct!";

@@ -15,8 +15,15 @@ public class AnswerListAdapter extends BaseAdapter {
     private final Context context;
     private final List<AnswerItemAdapter> answerAdapterList = new ArrayList<>();
 
-    AnswerListAdapter(Context context) {
+    public AnswerListAdapter(Context context) {
         this.context = context;
+    }
+
+    public AnswerListAdapter(Context context, List<Answer> answers) {
+        this.context = context;
+        for (Answer answer : answers) {
+            add(answer);
+        }
     }
 
     public void add(Answer answer) {
@@ -52,7 +59,7 @@ public class AnswerListAdapter extends BaseAdapter {
         return answerListLayout;
     }
 
-    public Boolean checkAnswersCorrectness() {
+    public Boolean wasCorrectAnswerMarked() {
         for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
             if (answerItemAdapter.isChoosen() != answerItemAdapter.isCorrect()) {
                 return false;

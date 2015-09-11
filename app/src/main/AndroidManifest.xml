@@ -8,7 +8,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.DeviceDefault" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MyStubBroadcastActivity"
             android:label="MyStubBroadcastActivity" >
@@ -40,6 +40,10 @@
 
         <activity
             android:name=".MobileQuestionActivity"
+            android:label="@string/title_activity_mobile_question" >
+        </activity>
+        <activity
+            android:name=".MobileQuestionExampleActivity"
             android:label="@string/title_activity_mobile_question" >
         </activity>
     </application>
