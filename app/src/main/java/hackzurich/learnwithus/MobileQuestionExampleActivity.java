@@ -1,7 +1,7 @@
 package hackzurich.learnwithus;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -14,7 +14,7 @@ import hackzurich.learnwithus.stub.QuestionStubFactory;
 import static android.widget.Toast.LENGTH_SHORT;
 
 
-public class MobileQuestionExampleActivity extends AppCompatActivity {
+public class MobileQuestionExampleActivity extends Activity {
 
     //TODO: Should be pass to activity from outside - this is just stub example
     Question question = QuestionStubFactory.doubleLengthDummyQuestion();
