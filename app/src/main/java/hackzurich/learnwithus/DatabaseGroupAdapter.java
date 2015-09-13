@@ -1,9 +1,12 @@
 package hackzurich.learnwithus;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,18 @@ public class DatabaseGroupAdapter extends BaseAdapter {
         this.context = context;
     }
 
+    public void addItem(Database database) {
+        databaseGroup.add(database);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getCount() {
         return databaseGroup.size();
     }
 
     @Override
-    public Object getItem(int position) {
+    public Database getItem(int position) {
         return databaseGroup.get(position);
     }
 
@@ -36,6 +44,15 @@ public class DatabaseGroupAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+
+        LinearLayout databaseLayout = (LinearLayout) LayoutInflater.from(context).inflate(
+                R.layout.database_field, parent, false);
+
+        Database database = getItem(position);
+
+        TextView databaseNameTextView = (TextView) databaseLayout.findViewById(R.id.databaseNameTextView);
+        databaseNameTextView.setText(database.getName());
+
+        return databaseLayout;
     }
 }
