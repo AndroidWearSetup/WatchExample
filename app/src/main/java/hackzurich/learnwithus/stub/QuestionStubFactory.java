@@ -3,7 +3,7 @@ package hackzurich.learnwithus.stub;
 import java.util.ArrayList;
 import java.util.List;
 
-import hackzurich.learnwithus.Answer;
+import hackzurich.learnwithus.model.Answer;
 import hackzurich.learnwithus.model.Question;
 
 public final class QuestionStubFactory {

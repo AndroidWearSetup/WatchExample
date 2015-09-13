@@ -18,7 +18,7 @@ public class MobileQuestionExampleActivity extends Activity {
 
     //TODO: Should be pass to activity from outside - this is just stub example
     Question question = QuestionStubFactory.doubleLengthDummyQuestion();
-    AnswerListAdapter answerListAdapter;
+    AnswerGroupAdapter answerListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class MobileQuestionExampleActivity extends Activity {
 
     private void bindAnswers(Question question) {
         ListView listView = (ListView) findViewById(R.id.listView);
-        answerListAdapter = new AnswerListAdapter(this, question.answers);
+        answerListAdapter = new AnswerGroupAdapter(this, question.answers);
         listView.setAdapter(answerListAdapter);
     }
 

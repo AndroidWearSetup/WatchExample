@@ -10,16 +10,18 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnswerListAdapter extends BaseAdapter {
+import hackzurich.learnwithus.model.Answer;
+
+public class AnswerGroupAdapter extends BaseAdapter {
 
     private final Context context;
-    private final List<AnswerItemAdapter> answerAdapterList = new ArrayList<>();
+    private final List<AnswerItemAdapter> answerItemAdapterGroup = new ArrayList<>();
 
-    public AnswerListAdapter(Context context) {
+    public AnswerGroupAdapter(Context context) {
         this.context = context;
     }
 
-    public AnswerListAdapter(Context context, List<Answer> answers) {
+    public AnswerGroupAdapter(Context context, List<Answer> answers) {
         this.context = context;
         for (Answer answer : answers) {
             add(answer);
@@ -27,18 +29,18 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public void add(Answer answer) {
-        answerAdapterList.add(new AnswerItemAdapter(answer));
+        answerItemAdapterGroup.add(new AnswerItemAdapter(answer));
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return answerAdapterList.size();
+        return answerItemAdapterGroup.size();
     }
 
     @Override
     public AnswerItemAdapter getItem(int position) {
-        return answerAdapterList.get(position);
+        return answerItemAdapterGroup.get(position);
     }
 
     @Override
@@ -49,18 +51,18 @@ public class AnswerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LinearLayout answerListLayout = (LinearLayout) LayoutInflater.from(context).inflate(
+        LinearLayout answerGroupLayout = (LinearLayout) LayoutInflater.from(context).inflate(
                 R.layout.answer_field, parent, false);
 
         AnswerItemAdapter answerItemAdapter = getItem(position);
 
-        answerItemAdapter.setAnswerView(answerListLayout);
+        answerItemAdapter.setAnswerView(answerGroupLayout);
 
-        return answerListLayout;
+        return answerGroupLayout;
     }
 
     public Boolean wasCorrectAnswerMarked() {
-        for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
+        for (AnswerItemAdapter answerItemAdapter : answerItemAdapterGroup) {
             if (answerItemAdapter.isChoosen() != answerItemAdapter.isCorrect()) {
                 return false;
             }
@@ -69,14 +71,8 @@ public class AnswerListAdapter extends BaseAdapter {
     }
 
     public void colourAnswersField() {
-        for (AnswerItemAdapter answerItemAdapter : answerAdapterList) {
+        for (AnswerItemAdapter answerItemAdapter : answerItemAdapterGroup) {
             answerItemAdapter.setSubmitted(true);
-//            if (answerItemAdapter.isCorrect()) {
-//                //TODO: Paint it green
-//            }
-//            if (answerItemAdapter.isChoosen() && !answerItemAdapter.isCorrect()) {
-//                //TODO: Paint it red
-//            }
         }
         notifyDataSetChanged();
     }

@@ -2,8 +2,6 @@ package hackzurich.learnwithus.model;
 
 import java.util.List;
 
-import hackzurich.learnwithus.Answer;
-
 public final class Question {
     public String identifier;
     public String text;

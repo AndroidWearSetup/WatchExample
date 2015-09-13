@@ -1,4 +1,4 @@
-package hackzurich.learnwithus;
+package hackzurich.learnwithus.model;
 
 import android.content.Intent;
 
@@ -53,6 +53,4 @@ public class Answer {
         intent.putExtra(Answer.TEXT, text);
         intent.putExtra(Answer.IS_CORRECT, correct.toString());
     }
-
-
 }

@@ -12,19 +12,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import hackzurich.learnwithus.model.Answer;
+
 
 public class MobileQuestionActivity extends ListActivity {
 
     private static final String TAG = "MobileQuestionActivity";
 
-    AnswerListAdapter answerListAdapter;
+    AnswerGroupAdapter answerListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_mobile_question);
 
-        answerListAdapter = new AnswerListAdapter(getApplicationContext());
+        answerListAdapter = new AnswerGroupAdapter(getApplicationContext());
 
         //TODO: Remove this example code and create method:
         answerListAdapter.add(new Answer("A.", "Thanks, I'm fine", false));

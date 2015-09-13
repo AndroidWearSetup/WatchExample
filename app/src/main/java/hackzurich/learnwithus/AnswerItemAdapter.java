@@ -4,6 +4,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import hackzurich.learnwithus.model.Answer;
+
 public final class AnswerItemAdapter {
 
     private Answer answer;
