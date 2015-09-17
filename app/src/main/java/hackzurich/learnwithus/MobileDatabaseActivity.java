@@ -2,8 +2,6 @@ package hackzurich.learnwithus;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -27,11 +25,11 @@ public class MobileDatabaseActivity extends Activity {
         Spinner chooseDatabaseSpinner = (Spinner) findViewById(R.id.chooseDatabaseSpinner);
         chooseDatabaseSpinner.setAdapter(databaseGroupAdapter);
 
-        Button startTestButton = (Button) findViewById(R.id.startTestButton);
-        startTestButton.setOnClickListener(new View.OnClickListener() {
+        Button chooseDifficultyLevelButton = (Button) findViewById(R.id.chooseDifficultyLevelButton);
+        chooseDifficultyLevelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onStartTestClicked();
+                onChooseDifficultyLevelClicked();
             }
         });
 
@@ -51,8 +49,8 @@ public class MobileDatabaseActivity extends Activity {
     }
 
     //TODO: implement this method
-    private void onStartTestClicked() {
-        Toast.makeText(this,"OK, so I'm starting the test...",Toast.LENGTH_LONG).show();
+    private void onChooseDifficultyLevelClicked() {
+        Toast.makeText(this,"Next activity!\nU need to choose difficulty level.",Toast.LENGTH_LONG).show();
     }
     //TODO: implement this method
     private void onLoadDatabaseClicked() {

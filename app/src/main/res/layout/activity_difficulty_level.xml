@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/selectedDatabaseNameTextView"
+        android:text="Very significant database name"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/easyLevelButton"
+        android:text="piece of cake"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#666666"/>
+
+    <Button
+        android:id="@+id/mediumLevelButton"
+        android:text="happy medium"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#666666"/>
+
+    <Button
+        android:id="@+id/highLevelButton"
+        android:text="uphill struggle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#666666"/>
+
+    <Button
+        android:id="@+id/startTestButton"
+        android:text="Start test NOOOOOW!"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+</LinearLayout>

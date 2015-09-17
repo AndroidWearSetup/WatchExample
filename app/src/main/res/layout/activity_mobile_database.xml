@@ -21,8 +21,8 @@
     </Spinner>
 
     <Button
-        android:id="@+id/startTestButton"
-        android:text="Start test"
+        android:id="@+id/chooseDifficultyLevelButton"
+        android:text="Choose difficulty level"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

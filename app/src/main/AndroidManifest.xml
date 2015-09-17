@@ -50,6 +50,10 @@
             android:name=".MobileDatabaseActivity"
             android:label="@string/title_activity_mobile_database" >
         </activity>
+        <activity
+            android:name=".DifficultyLevelActivity"
+            android:label="@string/title_activity_difficulty_level" >
+        </activity>
     </application>
 
 </manifest>
